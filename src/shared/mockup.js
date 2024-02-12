@@ -170,10 +170,29 @@ const availableSoldiers = mockSoldiers.filter(
     )
 );
 
-console.log(availableSoldiers);
+const mockMissions = [
+  { mission_id: "hamal", shifts: [] },
+  { mission_id: "moked", shifts: [] },
+  { mission_id: "haganat mahane", shifts: [] },
+  { mission_id: "mikve", shifts: [] },
+  { mission_id: "big", shifts: [] },
+  { mission_id: "TE", shifts: [] },
+  { mission_id: "mifal", shifts: [] },
+];
+const mockSelectedMissions = [
+  { mission_id: "hamal", shifts: [] },
+  { mission_id: "haganat mahane", shifts: [] },
+  { mission_id: "mikve", shifts: [] },
+  { mission_id: "big", shifts: [] },
+  { mission_id: "TE", shifts: [] },
+  { mission_id: "mifal", shifts: [] },
+];
+console.log(mockMissions);
 export default {
   mockShavtzak,
   mockSoldiers,
   mockSelectedSoldiers,
+  mockMissions,
+  mockSelectedMissions,
   availableSoldiers,
 };

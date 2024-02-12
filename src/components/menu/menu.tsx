@@ -22,8 +22,7 @@ const Menu = () => {
         className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
       >
         <li>
-          <a>
-            {" "}
+          <a href="/">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -43,7 +42,6 @@ const Menu = () => {
         </li>
         <li>
           <a>
-            {" "}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"

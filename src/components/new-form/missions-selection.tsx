@@ -3,27 +3,25 @@ import { useState } from "react";
 
 interface NameSelectionProps {
   data: {
-    dob: string;
-    soldiers: SoldierType[];
-    selectedSoldiers: SoldierType[];
     missions: Mission[];
     selectedMissions: Mission[];
   };
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const NameSelection: React.FC<NameSelectionProps> = ({
+const MissionsSelection: React.FC<NameSelectionProps> = ({
   data,
   handleChange,
 }) => {
   const [selectedNames, setSelectedNames] = useState<string[]>(
-    data.selectedSoldiers.map((soldier) => soldier.name)
+    data.selectedMissions.map((mission) => mission.mission_id)
   );
   const [availableNames, setAvailableNames] = useState<string[]>(
-    data.soldiers
-      .map((soldier) => soldier.name)
+    data.missions
+      .map((mission) => mission.mission_id)
       .filter((name) => !selectedNames.includes(name))
   );
+  console.log("this is", selectedNames);
 
   const handleNameSelectionChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -79,7 +77,7 @@ const NameSelection: React.FC<NameSelectionProps> = ({
         onDrop={(e) => handleDrop(e, "availableNames")}
         className="w-1/2  p-4 overflow-hidden h-80"
       >
-        <h2 className="text-xl font-semibold mb-4">Available People</h2>
+        <h2 className="text-xl font-semibold mb-4">Available Mission</h2>
         <div className="overflow-x-auto h-72">
           <table className="table table-pin-rows">
             <tbody>
@@ -106,7 +104,7 @@ const NameSelection: React.FC<NameSelectionProps> = ({
         onDrop={(e) => handleDrop(e, "selectedNames")}
         className="w-1/2 p-4 overflow-hidden h-80"
       >
-        <h2 className="text-xl font-semibold mb-4">Selected People</h2>
+        <h2 className="text-xl font-semibold mb-4">Selected Missions</h2>
         <div className="overflow-x-auto h-72">
           <table className="table table-pin-rows">
             <tbody>
@@ -131,4 +129,4 @@ const NameSelection: React.FC<NameSelectionProps> = ({
   );
 };
 
-export default NameSelection;
+export default MissionsSelection;

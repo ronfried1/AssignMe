@@ -1,30 +1,27 @@
 // MainForm.js
 "use client";
 import { useState } from "react";
-import Address from "./address";
+import Address from "./missions-selection";
 import UserNameEmail from "./username-email";
 import NameSelection from "./name-selection";
 import Soldier from "../soldier/soldier";
-import { SoldierType } from "@/shared/types";
+import { Mission, SoldierType } from "@/shared/types";
 import mockup from "@/shared/mockup";
+import MissionsSelection from "./missions-selection";
 
 const MainForm = () => {
   const [data, setData] = useState({
-    name: "",
-    email: "",
     dob: "",
-    gender: "male",
-    address: "",
     soldiers: mockup.availableSoldiers,
     selectedSoldiers: mockup.mockSelectedSoldiers,
-  } as {
-    name: string;
-    email: string;
+    missions: mockup.mockMissions,
+    selectedMissions: mockup.mockSelectedMissions,
+  } as unknown as {
     dob: string;
-    gender: "male";
-    address: string;
     soldiers: SoldierType[];
     selectedSoldiers: SoldierType[];
+    missions: Mission[];
+    selectedMissions: Mission[];
   });
 
   const handleChange = (event: any) => {
@@ -38,9 +35,9 @@ const MainForm = () => {
   const [activeTab, setActiveTab] = useState(0 as number);
 
   const formElements = [
-    <UserNameEmail data={data} handleChange={handleChange} />,
+    // <UserNameEmail data={data} handleChange={handleChange} />,
     <NameSelection data={data} handleChange={handleChange} />,
-    <Address data={data} setData={setData} />,
+    <MissionsSelection data={data} handleChange={handleChange} />,
   ];
 
   return (
